@@ -1,10 +1,10 @@
 {
   "name": "Rcon_Commands",
-  "version_number": "1.1.0",
+  "version_number": "1.2.0",
   "website_url": "https://github.com/JereKuusela/valheim-rcon_commands",
   "description": "Allows executing commands on the server with RCON.",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.2105",
+    "denikson-BepInExPack_Valheim-5.4.2200",
     "AviiNL-rcon-0.0.1"
   ]
 }

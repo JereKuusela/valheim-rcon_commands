@@ -10,7 +10,7 @@ public class RconCommands : BaseUnityPlugin
 {
   public const string GUID = "rcon_commands";
   public const string NAME = "Rcon Commands";
-  public const string VERSION = "1.1";
+  public const string VERSION = "1.2";
 #nullable disable
   rcon.rcon RCON;
 #nullable enable
@@ -34,7 +34,7 @@ public class RconCommands : BaseUnityPlugin
 [HarmonyPatch]
 public class Output
 {
-  public static List<string> Captured = new();
+  public static List<string> Captured = [];
   private static bool capturing;
   public static bool Capturing
   {
@@ -47,7 +47,7 @@ public class Output
     }
   }
   [HarmonyPatch(typeof(Terminal), nameof(Terminal.AddString), new[] { typeof(string) }), HarmonyPostfix]
-  static void AddString(Terminal __instance, string text)
+  static void AddString(string text)
   {
     if (!Capturing) return;
     text = $"{DateTime.Now.ToString(CultureInfo.InvariantCulture)}: {text}";
