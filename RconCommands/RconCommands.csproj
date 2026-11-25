@@ -8,33 +8,34 @@
   <Target Name="CopyDLL" AfterTargets="Build">
     <Copy
       SourceFiles="$(TargetDir)$(ProjectName).dll"
-      DestinationFolder="$(ProjectDir)\..\..\Libs" />
+      DestinationFolder="$(LibsDir)" />
     <Message Text="Copied to Libs folder." Importance="High" />
   </Target>
   <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
     <Reference Include="BepInEx.dll">
-      <HintPath>..\..\Libs\BepinEx.dll</HintPath>
+      <HintPath>$(BepInExDir)\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.dll">
-      <HintPath>..\..\Libs\UnityEngine.dll</HintPath>
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule.dll">
-      <HintPath>..\..\Libs\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony.dll">
-      <HintPath>..\..\Libs\0Harmony.dll</HintPath>
+      <HintPath>$(BepInExDir)\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.Harmony.dll">
-      <HintPath>..\..\Libs\BepInEx.Harmony.dll</HintPath>
+      <HintPath>$(BepInExDir)\BepInEx.Harmony.dll</HintPath>
     </Reference>
     <Reference Include="rcon.dll">
-      <HintPath>..\..\Libs\rcon.dll</HintPath>
+      <HintPath>$(LibsDir)\rcon.dll</HintPath>
     </Reference>
-    <Reference Include="assembly_valheim_publicized.dll">
-      <HintPath>..\..\Libs\assembly_valheim_publicized.dll</HintPath>
+    <Reference Include="assembly_valheim_publicized.dll" Publicize="true">
+      <HintPath>$(ManagedDir)\assembly_valheim.dll</HintPath>
     </Reference>
-    <Reference Include="assembly_utils_publicized.dll">
-      <HintPath>..\..\Libs\assembly_utils_publicized.dll</HintPath>
+    <Reference Include="assembly_utils_publicized.dll" Publicize="true">
+      <HintPath>$(ManagedDir)\assembly_utils.dll</HintPath>
     </Reference>
   </ItemGroup>
 
